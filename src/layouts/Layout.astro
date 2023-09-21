@@ -20,24 +20,29 @@ const { title } = Astro.props;
 	</head>
 	<body>
 	<Header></Header>
+	<slot name="before"></slot>
 		<slot />
+		<slot name="after"></slot>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
+		--yellow: 254, 217, 15;
+		--brown: 209, 178, 113;
+		--white: 255, 255, 255;
+		--blue: 112, 209, 254;
+		--gray: 66, 79, 70;
+		--background: #653D34;
 		--accent-gradient: linear-gradient(
 			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
+			rgb(var(--yellow)),
+			rgb(var(--brown)) 30%,
 			white 60%
 		);
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: rgb(var(--background));
 		background-size: 224px;
 		color-scheme: dark light;
 	}
