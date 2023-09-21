@@ -9,6 +9,8 @@ module.exports = {
 				white: "#ffffff",
 				blue: "#70d1fe",
 				gray: "#424f46",
+				background: "#653D34",
+				bgCard: "#653D34",
 		}
 		},
 	},

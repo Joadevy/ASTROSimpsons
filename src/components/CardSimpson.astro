@@ -1,0 +1,16 @@
+---
+interface Props {
+    Nombre: string,
+    Imagen: string,
+}
+
+const { Nombre, Imagen} = Astro.props
+
+---
+
+<a href={`/simpson/${Nombre}`} class="border border-yellow shadow-lg rounded-md p-2 bg-zinc-800">
+	<h2 class="text-2xl font-bold text-brown">{Nombre}</h2>
+	<div class="w-40 h-56">
+		<img transition:name="simpson-image" src={Imagen} alt={Nombre} class="w-full h-full aspect-auto" />
+	</div>
+</a>

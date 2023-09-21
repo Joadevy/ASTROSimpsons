@@ -1,33 +1,11 @@
 ---
+import Simpsons from '../components/Simpsons.astro';
 import Layout from '../layouts/Layout.astro'
-type response = {
-	docs: Simpsons[]
-}
-
-type Simpsons = {
-	Nombre: string
-	Imagen: string
-	Genero: string
-	Historia: string
-	Ocupacion: string
-	Estado: string
-}
-
-const {docs:data}:response = await fetch("https://apisimpsons.fly.dev/api/personajes").then(res => res.json())
 ---
 
 <Layout title="ASTROSimpsons">
-	<main>
-		<a href="/" class="border border-blue rounded-md p-2 hover:opacity-75">Back to home</a>
-			<div class="grid grid-cols-3 gap-4 mt-5">
-				{data.map((item) => (
-					<div class="border border-blue rounded-md p-2">
-						<h2 class="text-2xl font-bold">{item.Nombre}</h2>
-						<div class="w-40 h-56">
-							<img src={item.Imagen} alt={item.Nombre} class="w-full h-full aspect-auto" />
-						</div>
-					</div>
-				))}
-			</div>
+	<main class="flex flex-col gap-4">
+		<a href="/" class="border border-blue rounded-md p-2 hover:opacity-75 w-fit">Back to home</a>
+		<Simpsons />
 	</main>
 </Layout>
