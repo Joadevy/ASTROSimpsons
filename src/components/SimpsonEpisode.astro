@@ -1,27 +1,17 @@
 ---
 type Props = {
     videoId: string,
-    title: string,
 }
 
-const {videoId, title, } = Astro.props
+const {videoId } = Astro.props
 ---
 
-<div class="border p-2 border-brown rounded-md w-fit">
-    <h2 class="mb-1">
-        {title}
-    </h2>
-
-    <div class="rounded-xl overflow-hidden shadow-xl w-fit">
-        <iframe
-        width="320"
-        height="260"
+<div class="rounded-xl overflow-hidden border border-brown shadow-xl w-fit">
+    <iframe
+        width="240"
+        height="240"
         src=`https://www.youtube.com/embed/${videoId}`
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-        />
-    </div>
-    <div>
- 
-</div>
+    />
 </div>
