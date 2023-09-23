@@ -1,0 +1,15 @@
+---
+type Props = {
+    text?: string
+}
+
+const {text} = Astro.props
+---
+
+<a href="/" class="border border-yellow rounded-md py-1 px-2 hover:opacity-75 w-fit flex items-center justify-center">
+    <slot name="before"/>
+    <p class="text-base">
+        {text}
+    </p>
+    <slot name="after"/>
+</a>

@@ -8,9 +8,9 @@ const { Nombre, Imagen} = Astro.props
 
 ---
 
-<a href={`/simpson/${Nombre}`} class="border border-yellow shadow-lg rounded-md p-2 bg-zinc-800">
-	<h2 class="text-2xl font-bold text-brown">{Nombre}</h2>
-	<div class="w-40 h-56">
-		<img transition:name="simpson-image" src={Imagen} alt={Nombre} class="w-full h-full aspect-auto" />
+<a href={`/simpson/${Nombre}`} class="border border-brown shadow-lg rounded-md p-2 bg-zinc-800 flex flex-col items-center gap-2 hover:opacity-75 scale-100 hover:scale-105 transition-all">
+	<h2 class="text-2xl font-bold text-brown" transition:name="simpson-name">{Nombre}</h2>
+	<div class="w-32 h-44">
+		<img transition:name="simpson-image" transition:animate="fade" src={Imagen} alt={Nombre} class="w-full h-full aspect-auto" />
 	</div>
 </a>

@@ -1,15 +1,12 @@
 ---
-import type {Simpson} from '../types/api'
 import CardSimpson from './CardSimpson.astro';
+import {getSimpsons} from '../lib/utils'
 
-type response = {
-	docs: Simpson[]
-}
-
-const {docs:data}:response = await fetch("https://apisimpsons.fly.dev/api/personajes").then(res => res.json())
+const data = await getSimpsons();
 ---
+
 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-{data.map(({Nombre, Imagen}) => (
-		<CardSimpson Nombre={Nombre} Imagen={Imagen} />
-))}
+	{data.map(({Nombre, Imagen}) => (
+			<CardSimpson Nombre={Nombre} Imagen={Imagen} />
+	))}
 </div>

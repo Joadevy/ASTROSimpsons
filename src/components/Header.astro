@@ -1,10 +1,24 @@
-<header class="flex flex-col items-center">
+<header class="flex flex-col items-center -mt-6">
 	<div class="w-48 opacity-40">
 		<img src='./Simpsons_Logo.webp' alt="" class="w-full">
 	</div>
-	<h1 class="text-6xl font-bold text-gradient -mt-4">ASTROSimpsons</h1>
+	<h1 class="text-5xl font-bold text-gradient -mt-4">ASTROSimpsons</h1>
 
 	<p class="italic text-white">Your favorite Simpsons info-page made with ASTRO!</p>
+
+	<nav>
+		<ul class="flex justify-center mt-2 gap-4">
+			<li>
+				<a href="/" class="text-white hover:text-yellow transition-colors">Home</a>
+			</li>
+			<li>
+				<a href="/characters" class="text-white hover:text-yellow transition-colors">Characters</a>
+			</li>
+			<li>
+				<a href="/episodes" class="text-white hover:text-yellow transition-colors">Episodes</a>
+			</li>
+		</ul>
+	</nav>
 </header>
 
 <style>

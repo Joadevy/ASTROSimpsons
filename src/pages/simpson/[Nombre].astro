@@ -1,13 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import type {Simpson} from '../../types/api'
-
-type response = {
-	docs: Simpson[]
-}
+import {getSimpsons} from '../../lib/utils'
+import {getSimpsonByName} from '../../lib/utils'
 
 export async function getStaticPaths(){
-    const {docs:data}: response = await fetch(`https://apisimpsons.fly.dev/api/personajes`).then(res => res.json())
+    const data = await getSimpsons();
     return data.map(({Nombre}) => ({
         params:{
             Nombre
@@ -17,15 +14,24 @@ export async function getStaticPaths(){
 
 
 const {Nombre} = Astro.params
-const {result: data} = await fetch(`https://apisimpsons.fly.dev/api/personajes/find/${Nombre}`).then(res => res.json())
+const data = await getSimpsonByName(Nombre ?? "")
 
 ---
 
 <Layout title={`ASTRO-${Nombre}`}>
-    <div class="border border-yellow shadow-lg rounded-md p-2 bg-zinc-800">
-	<h2 class="text-2xl font-bold text-brown">{data[0].Nombre}</h2>
-	<div class="w-40 h-56">
-		<img transition:name="simpson-image" src={data[0].Imagen} alt={data[0].Nombre} class="w-full h-full aspect-auto" />
-	</div>
-</div>
+    <main class="grid place-items-center">
+        <div class="border border-yellow shadow-lg rounded-md p-4 bg-zinc-800 max-w-fit flex gap-2 justify-around w-3/4">  
+            <header class="flex flex-col gap-2 items-center">
+                <h2 class="text-2xl font-bold text-brown" transition:name="simpson-name">{data?.Nombre}</h2>
+                <div class="w-40 h-56">
+                    <img transition:name="simpson-image" transition:animate="slide" src={data?.Imagen} alt={data?.Nombre} class="w-full h-full aspect-auto" />
+                </div>
+            </header>
+
+            <div class="w-1/2 text-base flex flex-col gap-2">
+                <p>{data?.Ocupacion}</p>
+                <p>{data?.Historia}</p>
+            </div>
+        </div>
+    </main>
 </Layout>
