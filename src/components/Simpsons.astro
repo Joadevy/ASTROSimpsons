@@ -6,7 +6,7 @@ const data = await getSimpsons();
 ---
 
 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-	{data.map(({Nombre, Imagen}) => (
+	{data?.map(({Nombre, Imagen}) => (
 			<CardSimpson Nombre={Nombre} Imagen={Imagen} />
 	))}
 </div>
