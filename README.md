@@ -14,7 +14,7 @@
 ASTROSimpsons is a simple app where you can search for information about "The Simpsons" a popular TV show. It has been made exclusively to learn the basics of ASTRO 3.0 and its indredible features such as View Transition API and zero javascript to the client because it's a static page. I also learned about integration with UI frameworks like React & Preact, but I didn't include them in this project, to provide interactivy using the frontend island architecture that this framework encourages and it was an amazing development experience, I recommend.
 
 ### Features
-↠ Characters page with information about.
+↠ Characters page with information about.   
 ↠ Episodes page with some of them.
 
 ### Built with
