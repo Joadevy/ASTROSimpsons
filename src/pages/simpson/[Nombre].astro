@@ -15,7 +15,6 @@ export async function getStaticPaths(){
 
 const {Nombre} = Astro.params
 const data = await getSimpsonByName(Nombre ?? "")
-console.log(data)
 ---
 
 <Layout title={`ASTRO-${Nombre}`}>
